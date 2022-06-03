@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<form action="/SOME-URL" method="post" style="margin: 23px;">
+<form action="{{ route('newServiceFormHandle') }}" method="post" style="margin: 23px;">
     @csrf
     <div class="form-group col">
         <div class="form-floating mb-3">
@@ -22,7 +22,7 @@
 
     <div class="form-group col">
         <label for="secondPhoneNumber">Second Phone Number</label>
-        <input type="text" class="form-control mb-3" id="secondPhoneNumber" placeholder="+98 9123456789">
+        <input type="text" name="secondPhoneNumber" class="form-control mb-3" id="secondPhoneNumber" placeholder="+98 9123456789">
     </div>
 
     {{--  --}}
@@ -47,9 +47,9 @@
         <label for="carSelect">Select A Car</label>
         <div class="form-group col-md-4 mb-3">
             <select class="form-control" id="carSelect">
-                @foreach (@Auth::user()->customer->carModels as $car)
+                {{-- @foreach (@Auth::user()->customer->carModels as $car)
                     <option>{{ $car['brandName'] }}  {{ $car['modelName'] }} ({{ $car['plateNumber'] }}) </option>
-                @endforeach()
+                @endforeach() --}}
             </select>
         </div>
     </div>
@@ -58,7 +58,7 @@
 
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Description</label>
-        <textarea class="form-control mb-3" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea name="description" class="form-control mb-3" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
 
     {{--  --}}
@@ -66,7 +66,7 @@
     <div class="form-row">
         <div class="form-group col-md-4 mb-3">
             <label for="Discount">Date</label>
-            <input type="date" class="form-control" id="Discount" required>
+            <input name="serviceDate" type="date" class="form-control" id="Discount" required>
         </div>
     </div>
 
@@ -75,7 +75,7 @@
     <div class="form-row">
         <div class="form-group col-md-4 mb-3">
             <label for="Discount">Date</label>
-            <input type="time" class="form-control" id="Discount" required>
+            <input name="" type="time" class="form-control" id="Discount" required>     {{-- name --}}
         </div>
     </div>
 
@@ -84,7 +84,7 @@
     <div class="form-row">
         <div class="form-group col-md-4 mb-3">
             <label for="Discount">Discount Code</label>
-            <input type="text" class="form-control" id="Discount">
+            <input type="text" name="discountCode" class="form-control" id="Discount">
         </div>
     </div>
 
@@ -119,4 +119,5 @@
         <button type="submit" class="btn mt-5 btn-outline-primary btn-lg" style="padding:10px 100px; border-radius: 30px;">Sign in</button>
     </div>
 </form>
+
 @endsection

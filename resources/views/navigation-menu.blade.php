@@ -18,16 +18,16 @@
                         <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                             Dashboard
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('Cars') }}" :active="request()->routeIs('dashboard')">
+                        <x-jet-nav-link href="{{ route('myCars') }}" :active="request()->routeIs('dashboard')">
                             My Cars
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('Customers') }}" :active="request()->routeIs('dashboard')">
+                        <x-jet-nav-link href="{{ route('customers') }}" :active="request()->routeIs('dashboard')">
                             My Services
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('Customers') }}" :active="request()->routeIs('dashboard')">
+                        <x-jet-nav-link href="{{ route('customers') }}" :active="request()->routeIs('dashboard')">
                             New Service
                         </x-jet-nav-link>
-                        <x-jet-nav-link href="{{ route('Customers') }}" :active="request()->routeIs('dashboard')">
+                        <x-jet-nav-link href="{{ route('customers') }}" :active="request()->routeIs('dashboard')">
                             New Car
                         </x-jet-nav-link>
                     </div>
@@ -40,10 +40,10 @@
                             <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                 Dashboard
                             </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ route('Cars') }}" :active="request()->routeIs('dashboard')">
+                            <x-jet-nav-link href="{{ route('myCars') }}" :active="request()->routeIs('dashboard')">
                                 Cars
                             </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ route('Customers') }}" :active="request()->routeIs('dashboard')">
+                            <x-jet-nav-link href="{{ route('customers') }}" :active="request()->routeIs('dashboard')">
                                 Customers
                             </x-jet-nav-link>
                         </div>
@@ -55,13 +55,13 @@
                             <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                 Dashboard
                             </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ route('Cars') }}" :active="request()->routeIs('dashboard')">
+                            <x-jet-nav-link href="{{ route('myCars') }}" :active="request()->routeIs('dashboard')">
                                 Cars
                             </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ route('Customers') }}" :active="request()->routeIs('dashboard')">
+                            <x-jet-nav-link href="{{ route('customers') }}" :active="request()->routeIs('dashboard')">
                                 Customers
                             </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ route('Customers') }}" :active="request()->routeIs('dashboard')">
+                            <x-jet-nav-link href="{{ route('customers') }}" :active="request()->routeIs('dashboard')">
                                 New Service
                             </x-jet-nav-link>
                         </div>

@@ -105,7 +105,11 @@
         </div>
         <div>
             <li>
-                You have<b class="text-danger"> {{ count(@Auth::user()->customer->carModels) }} </b>cars.
+                @if(@Auth::user()->customer->carModels != null)
+                    You have<b class="text-danger"> {{ count(@Auth::user()->customer->carModels) }} </b>cars.
+                @else
+                    You have<b class="text-danger"> 0 </b>cars.
+                @endif
             </li>
         </div>
         <div class="mt-3 row">

@@ -1,8 +1,8 @@
-@extends('master')
+@extends('dashboard')
 
-@section('content')
+@section('dashboardContent')
 
-<form action="/newCarHandle" method="POST">
+<form action="{{ route('newCarHandle') }}" method="POST">
     @csrf
 
     <div class="form-group col">

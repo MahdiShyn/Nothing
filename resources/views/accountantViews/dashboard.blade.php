@@ -1,2 +1,7 @@
-@include('.accountantViews.customers')
-{{-- @include('.accountantViews.component.table') --}}
+@extends('dashboard')
+
+@section('dashboardContent')
+
+{{--  --}}
+
+@endsection

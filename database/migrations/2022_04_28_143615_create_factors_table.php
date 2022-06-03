@@ -15,23 +15,23 @@ return new class extends Migration
     {
         Schema::create('factors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->nullable();
-            $table->foreignId('carModel_id')->nullable();
-            $table->string('paymentMethod');
-            // $table->enum('paymentMethod',['online','cardToCard','creditCard']);
+            $table->foreignId('service_id')->nullable(false);
+            $table->foreignId('carModel_id')->nullable(false);
+            $table->string('discount_id')->nullable();
+            $table->enum('paymentMethod',['online','cardToCard','creditCard'])->nullable(false);
             $table->enum('status',[
                 'deskClerkAnswer',
                 'accountantAnswer',
                 'done',
                 'canceled'
-            ])->default('accountantAnswer');
-            $table->boolean('paid');
+            ])->default('accountantAnswer')->nullable(false);
+            $table->boolean('paid')->default(false)->nullable(false);
             $table->boolean('confirm')->default(false);
             $table->boolean('discount')->default(false);
-            $table->string('')->nullable();
-            $table->string('description');
-            $table->string('accountantNote');
-            $table->string('deskClerkNote');
+            $table->string('description')->default(NULL)->nullable(true);
+            $table->string('accountantNote')->default(NULL)->nullable(true);
+            $table->string('deskClerkNote')->default(NULL)->nullable(true);
+            $table->time('reserveDate')->nullable(false);
             $table->timestamps();
         });
     }

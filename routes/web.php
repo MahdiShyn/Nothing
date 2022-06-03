@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Jetstream\Rules\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
+// --------------------------------------------------------------------------
 Route::get('/', function () {
     return view('index');
 })->name('home');
@@ -29,13 +32,15 @@ Route::get('/privacy',function () {
     return view('privacy');
 })->name('privacy');
 
+// --------------------------------------------------------------------------
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('customerViews.dashboard');
     })->name('dashboard');
 });
 
@@ -50,6 +55,7 @@ Route::get('receipt/{id}',function($id){
     'verified'
 ]);
 
+// --------------------------- Customers route ---------------------------
 
 Route::get('/form',function(){ 
     return view('customerViews.newServiceForm');
@@ -57,5 +63,65 @@ Route::get('/form',function(){
 
 Route::get('/t',[HomeController::class,'tester']);
 
+Route::post('/submit-new-service',[CustomerController::class,'newServiceFormHandle'])
+    ->name('newServiceFormHandle');
 
-// Route::get()
+Route::get('my-cars',function () {
+    return view('myCars');
+})->name('myCars');
+
+Route::get('customers',function () {
+    return view('customers');
+})->name('customers');
+
+Route::get('new-car',function(){
+    return view('customerViews.newCarForm');
+})->name('newCarForm');
+
+Route::post('new-car-handle',[CustomerController::class,'newCarFormHandle'])
+    ->name('newCarHandle');
+
+
+// --------------------------- Accountant route ---------------------------
+
+// Route::get('',function(){
+//     // 
+// })->name('');
+
+Route::post('confirm-payment',[FactorController::class,'confirmPaymentByAccountant'])
+    ->name('confirmPayment');
+
+
+Route::post('report-payment',[FactorController::class,'reportPaymentByAccountant'])
+    ->name('reportPayment');
+
+
+// Route::post('',[''])
+//     ->name('');
+
+
+// --------------------------- Desk clerk route ---------------------------
+
+Route::post('confirm-car',[CarModelController::class,'confirmCarByDeskClerk'])
+    ->name('confirmCar');
+
+Route::post('new-service-DC',[FactorController::class,'newServiceByDeskClerk'])
+    ->name('newServiceDeskClerk');
+
+Route::post('service-volume',[ServiceController::class,'setServiceVolume'])
+    ->name('setServiceVolume');
+
+// Route::post('',[''])
+//     ->name('');
+
+// Route::post('',[''])
+//     ->name('');
+
+
+// --------------------------- Workers route ---------------------------
+
+// Route::post('',[WorkerController::class,'reportDidService'])
+//     ->name('');
+
+// Route::post('',[WorkerController::class,'reportPeresentCustomer'])
+//     ->name('');

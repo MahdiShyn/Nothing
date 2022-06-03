@@ -1,40 +1,45 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Models\Factor;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
     public function newServiceFormHandle(Request $request)
     {
-        $in = $request->all();
-        // $secondPhoneNumber = $in['secondPhoneNumber'];
-        // $selectService =
-        // $selectCar = 
-        // $description = 
-        // $date = 
-        // $time = 
-        // $discountCode = 
-        // $paymentMethod = 
-        return ;
+        dd($request);
     }
 
     public function uploadReceiptPictureHandle(Request $request)
     {
+        dd($request);
         // 
         return ;
     }
 
     public function newCarFormHandle(Request $request)
     {
-        $in = $request->all();
-        $brand = $in['brand'];
-        $model = $in['model'];
-        $plate = $in['brand'];
-        $color = $in['brand'];
-        $description = $in['brand'];
-
-        return ;
+        dd($request);
+        // $input = $request->all();
+        // $brand = $input['brand'];
+        // $model = $input['model'];
+        // $plate = $input['plate'];
+        // $color = $input['color'];
+        // $description = $input['description'];
+        // return ;
     }
 
-    // public function
+    public function confirmDidService(Request $request, $factorId, $status)
+    {
+        dd($request);
+        $factor = Factor::find($factorId);
+        if($status){
+            // 
+        }else{
+            // 
+        }
+        $factor->save();
+        return response('',200);
+    }
 }

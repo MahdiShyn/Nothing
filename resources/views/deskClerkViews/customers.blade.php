@@ -1,3 +1,6 @@
+@extends('dashboard')
+
+@section('dashboardContent')
 <table class="table">
     <thead>
         <tr>
@@ -24,3 +27,4 @@
 {{-- @endforeach --}}
     </tbody>
 </table>
+@endsection

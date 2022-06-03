@@ -29,6 +29,5 @@ class AccountantController extends Controller
             ->with('notePayment',$notePayment)
             ->with('confirmPayment',$confirmPayment)
             ->with('cancelPayment',$cancelPayment);
-
     }
 }
